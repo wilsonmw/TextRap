@@ -8,7 +8,7 @@
     display: inline-block;
     box-shadow: 3px 3px 2px gray;
     text-align: center;
-    overflow: scroll;
+    overflow: auto;
 }
 #curBattles{
     width: 40%;
@@ -20,7 +20,7 @@
     display: inline-block;
     box-shadow: 3px 3px 2px gray;
     text-align: center;
-    overflow: scroll;
+    overflow: auto;
 }
 #curCollabs{
     width: 40%;
@@ -32,7 +32,7 @@
     display: inline-block;
     box-shadow: 3px 3px 2px gray;
     text-align: center;
-    overflow: scroll;
+    overflow: auto;
 }
 #openBattles{
     width: 40%;
@@ -44,7 +44,7 @@
     display: inline-block;
     box-shadow: 3px 3px 2px gray;
     text-align: center;
-    overflow: scroll;
+    overflow: auto;
 }
 #otherBattles{
     width: 40%;
@@ -56,7 +56,7 @@
     display: inline-block;
     box-shadow: 3px 3px 2px gray;
     text-align: center;
-    overflow: scroll;
+    overflow: auto;
 }
 #otherCollabs{
     width: 40%;
@@ -68,7 +68,7 @@
     display: inline-block;
     box-shadow: 3px 3px 2px gray;
     text-align: center;
-    overflow: scroll;
+    overflow: auto;
 }
 table{
     border: 1px solid black;

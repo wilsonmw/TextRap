@@ -13,7 +13,7 @@ h1, h2, h3{
     box-shadow: 3px 3px 2px gray;
     border-radius: 7px 80px 80px 7px;
     height: 65px;
-    overflow: scroll;
+    overflow: auto;
 }
 #battleContentBox{
     align-content: center;
@@ -31,7 +31,7 @@ h1, h2, h3{
     border-radius: 80px 7px 7px 80px;
     height: 65px;
     margin-top: 5px;
-    overflow: scroll;
+    overflow: auto;
 }
 #blankBarBox{
     display: inline-block;
@@ -54,7 +54,7 @@ h1, h2, h3{
     border-radius: 80px 7px 7px 80px;
     height: 65px;
     text-align: right;
-    overflow: scroll;
+    overflow: auto;
 }
 #opponentBarBox{
     display: inline-block;
@@ -68,7 +68,7 @@ h1, h2, h3{
     border-radius: 7px 80px 80px 7px;
     height: 65px;
     margin-top: 5px;
-    overflow: scroll;
+    overflow: auto;
 }
 #newBarBox{
     width: 49%;

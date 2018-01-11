@@ -128,9 +128,10 @@ module.exports = function(app){
         critiques.newCritique(req, res);
     })
 
-    
 
-    app.all("*", (req,res,next) => {
-        res.sendFile(path.resolve("../../public/dist/index.html"))
-    });
+
+// Any other route will be caught by this
+    app.all("*", (req, res) => {
+        res.sendFile(path.resolve("./public/dist/index.html"));
+    })
 }
