@@ -1,0 +1,86 @@
+<div id="wholeDashboard">
+  <h3>Welcome {{username}}</h3>
+  <div id="challenges">
+    <h3>Challenges</h3>
+    <table>
+      <tr>
+        <th>Challenger</th>
+        <th>Total Bars to Complete</th>
+        <th>Been Waiting For:</th>
+      </tr>
+      <tr *ngFor="let battle of challenges">
+        <td><a [routerLink]="['/home/battle', battle._id]">{{battle.ownerName}}</a></td>
+        <td>{{battle.totalBars}}</td>
+        <td >{{ battle.timeSince }}</td>
+      </tr>
+    </table>
+  </div>
+  <div id="curBattles">
+    <h3>Your Current Battles</h3>
+    <table>
+      <tr>
+        <th>Opponent</th>
+        <th>Whose Mic?</th>
+        <th>Time Since Last Bars</th>
+      </tr>
+      <tr *ngFor="let battle of userBattles">
+        <td><a [routerLink]="['/home/battle', battle._id]" *ngIf="battle.ownerName == username">{{battle.opponentName}}</a>
+          <a [routerLink]="['/home/battle', battle._id]" *ngIf="battle.opponentName == username">{{battle.ownerName}}</a></td>
+        <td>{{battle.whoseMic}}</td>
+        <td>{{ battle.timeSince }}</td>
+      </tr>
+    </table>
+  </div>
+  <div id="curCollabs">
+    <h3>Your Current Collaborations</h3>
+    <table>
+      <tr>
+        <th>Collaborators</th>
+        <th>Whose Mic?</th>
+        <th>Time Since Last Bars</th>
+      </tr>
+    </table>
+  </div>
+  <div id="openBattles">
+    <h3>Battles Open to Join</h3>
+    <table>
+      <tr>
+        <th>Challenger</th>
+        <th>Total Bars to Complete</th>
+        <th>Been Waiting For:</th>
+      </tr>
+      <tr *ngFor="let battle of openBattles">
+        <td><a [routerLink]="['/home/openBattle', battle._id]">{{battle.ownerName}}</a></td>
+        <td>{{battle.totalBars}}</td>
+        <td >{{ battle.timeSince }}</td>
+      </tr>
+    </table>
+  </div>
+  <div id="otherBattles">
+    <h3>Other Current Battles</h3>
+    <div class="scrollDiv">
+      <table>
+        <tr>
+          <th>Participants</th>
+          <th>Whose Mic?</th>
+          <th>Time Since Last Bars</th>
+        </tr>
+        <tr *ngFor="let battle of allBattles">
+          <td><a [routerLink]="['/home/battle', battle._id]">{{battle.ownerName}} VS. {{battle.opponentName}}</a></td>
+          <td>{{battle.whoseMic}}</td>
+          <td >{{ battle.timeSince }}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div id="otherCollabs">
+    <h3>Other Current Collaborations</h3>
+    <table>
+      <tr>
+        <th>Participants</th>
+        <th>Whose Mic?</th>
+        <th>Time Since Last Bars</th>
+      </tr>
+    </table>
+  </div>
+</div>

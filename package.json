@@ -1,0 +1,24 @@
+{
+  "name": "textrap",
+  "version": "1.0.0",
+  "description": "personal project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@angular/core": "5.0.5",
+    "bcrypt-as-promised": "^1.0.4",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.16.0",
+    "express-session": "^1.15.6",
+    "moment": "^2.18.1",
+    "mongoose": "^4.11.13",
+    "socket.io": "^2.0.3"
+  },
+  "devDependencies": {
+    "@angular/cli": "^1.4.7"
+  }
+}

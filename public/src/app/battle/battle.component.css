@@ -1,0 +1,177 @@
+h1, h2, h3{
+    text-align: center;
+}
+
+#barContent{
+    display: inline-block;
+    border: 2px solid black;
+    background-color: #60BB6F;
+    padding: 10px;
+    margin-left: 2%;
+    margin-top: 5px;
+    width: 49%;
+    box-shadow: 3px 3px 2px gray;
+    border-radius: 7px 80px 80px 7px;
+    height: 65px;
+    overflow: scroll;
+}
+#battleContentBox{
+    align-content: center;
+}
+
+#ownerBarBox{
+    display: inline-block;
+    border: 2px solid black;
+    background-color: red;
+    width: 15%;
+    margin-left: 4%;
+    vertical-align: top;
+    padding: 10px;
+    box-shadow: 3px 3px 2px gray;
+    border-radius: 80px 7px 7px 80px;
+    height: 65px;
+    margin-top: 5px;
+    overflow: scroll;
+}
+#blankBarBox{
+    display: inline-block;
+    width: 15%;
+    margin-left: 4%;
+    margin-right: 3px;
+    vertical-align: top;
+    padding: 10px;
+    height: 65px;
+}
+#barContent2{
+    display: inline-block;
+    border: 2px solid black;
+    background-color: #60BB6F;
+    padding: 10px;
+    margin-left: 2%;
+    margin-top: 5px;
+    width: 49%;
+    box-shadow: 3px 3px 2px gray;
+    border-radius: 80px 7px 7px 80px;
+    height: 65px;
+    text-align: right;
+    overflow: scroll;
+}
+#opponentBarBox{
+    display: inline-block;
+    border: 2px solid black;
+    background-color: #5C95EB;
+    width: 15%;
+    margin-left: 2%;
+    vertical-align: top;
+    padding: 10px;
+    box-shadow: 3px 3px 2px gray;
+    border-radius: 7px 80px 80px 7px;
+    height: 65px;
+    margin-top: 5px;
+    overflow: scroll;
+}
+#newBarBox{
+    width: 49%;
+    height: 250px;
+    padding: 10px;
+    text-align: center;
+    background-color: #0F8379;
+    border: 2px solid black;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: 7px 7px 7px 7px;
+    margin-left: 23.5%;
+    box-shadow: 3px 3px 2px gray;
+}
+.lineInput{
+    width: 80%;
+    margin-top: 1%;
+    height: 20px;
+}
+#submitButton{
+    width: 35%;
+    height: 30px;
+    margin-top: 1%;
+    border-radius: 7px;
+    box-shadow: 4px 4px 2px black;
+}
+.dateLine{
+    font-size: 0.8em;
+    margin-top: -10px;
+}
+
+#infoBox{
+    width: 45%;
+    background-color: red;
+    padding: 10px;
+    box-shadow: 3px 3px 2px gray;
+    display: inline-block;
+    margin: 2%;
+}
+#beforeAccepted{
+    text-align: center;
+    align-content: center;
+}
+
+#acceptChallenge{
+    width: 45%;
+    background-color: red;
+    padding: 10px;
+    box-shadow: 3px 3px 2px gray;
+    display: inline-block;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    margin-left: 25%;
+    text-align: center;
+}
+
+#yesButton{
+    width: 35%;
+    height: 30px;
+    font-size: 1.2em;
+    border-radius: 5px;
+    box-shadow: 3px 3px 2px black;
+    margin-bottom: 5px;
+}
+
+#noButton{
+    width: 25%;
+    height: 18px;
+    font-size: 0.7em;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px black;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+#postedBars{
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: #60BB6F;
+}
+#critiqueBox1{
+    display: inline-block;
+    width: 15%;
+    margin-left: 2%;
+    vertical-align: top;
+    padding-top: 35px;
+    height: 65px;
+    margin-top: 5px;
+    text-align: center;    
+}
+#critiqueBox2{
+    display: inline-block;
+    width: 15%;
+    margin-left: 6%;
+    vertical-align: top;
+    padding-top: 35px;
+    height: 65px;
+    margin-top: 5px;
+    text-align: center;
+}
+.critiqueButton{
+    height: 20px;
+    background-color: rgb(73, 71, 71);
+    color: whitesmoke;
+    box-shadow: 3px 3px 1px black;
+}

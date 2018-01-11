@@ -1,0 +1,26 @@
+
+<form id="loginForm" #loginFormData="ngForm" (submit)="loginSubmit()">
+  <h2>Login:</h2>
+  <span class="errorMessages" *ngIf="errors.loginError == true">Login failed; please try again.</span><br>
+  *Username: <input type='text' name="email" required [(ngModel)]="loginUser.username"><br>
+  <br>
+  *Password: <input type='text' name='password' required [(ngModel)]="loginUser.password"><br>
+  <br>
+  <input type='submit' value="Login" id="loginSubmit" [disabled]="loginFormData.invalid"><br>
+</form>
+
+<form id="regForm" #regFormData="ngForm" (submit)="regSubmit()">
+  <h2>Sign Up:</h2>
+  <span class="errorMessages" *ngIf="errors.usernameInUse == true">That username is already being used; please try again.</span>
+  <span class="errorMessages" *ngIf="errors.emailInUse == true">That email address is already registered; please log in with the proper credentials or use a different email address.</span><br>
+  <span *ngIf="username.invalid && username.touched" class="errorMessages">Username is required and must be at least 3 characters</span><br>
+  *Username: <input type="text" name="username" required minlength="3" [(ngModel)]="regUser.username" #username="ngModel"><br>
+  <span *ngIf="email.invalid && email.touched" class="errorMessages">Email is required</span><br>
+  *Email: <input type="text" name="email" required minlength="2" [(ngModel)]="regUser.email" #email="ngModel"><br>
+  <span *ngIf="password.invalid && password.touched" class="errorMessages">Password is required and must be at least 8 characters</span><br>
+  *Password: <input type="text" name="password" required minlength="8" [(ngModel)]="regUser.password" #password="ngModel"><br>
+  <span *ngIf="regUser.pwConfirm != regUser.password && pwConfirm.touched" class="errorMessages">Password Confirmation is required and must match Password</span><br>
+  *Password Confirmation: <input type="text" name="pwConfirm" required minlength="8" [(ngModel)]="regUser.pwConfirm" #pwConfirm="ngModel"><br>
+  <br>
+  <input type="submit" value="Register" id="regSubmit" [disabled]="regFormData.invalid">
+</form>  

@@ -1,0 +1,32 @@
+#battleInfoBox{
+    width: 45%;
+    background-color: red;
+    padding: 10px;
+    box-shadow: 3px 3px 2px gray;
+    display: inline-block;
+    margin: 2%;
+}
+
+#wholeJoinPage{
+    text-align: center;
+    align-content: center;
+}
+
+#yesButton{
+    width: 35%;
+    height: 30px;
+    font-size: 1.2em;
+    border-radius: 5px;
+    box-shadow: 3px 3px 2px black;
+    margin-bottom: 5px;
+}
+
+#noButton{
+    width: 25%;
+    height: 18px;
+    font-size: 0.7em;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px black;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}

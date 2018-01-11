@@ -1,0 +1,109 @@
+
+<!-- Show the battle participants and how many bars are remaining -->
+<div id="battleContentBox" *ngIf="battle.accepted == true">
+  <h1>{{owner.username}} VS. {{opponent.username}}</h1>
+  <h2 *ngIf="battle.ongoing == true">{{battle.totalBars - battle.bars.length}} sets of bars remaining...</h2>
+
+  <!-- Loop through all the bars and display them -->
+  <div id="battleBarLoop" *ngFor="let bar of battle.bars">
+    <div id="ownerBarBox" *ngIf="bar.ownerName == battle.ownerName">
+      <p>{{bar.ownerName}}</p>
+      <p class="dateLine">{{bar.createdAt | date:"medium"}}</p>
+    </div>
+    <div id="barContent" *ngIf="bar.ownerName == battle.ownerName">
+      <p>{{bar.line1}}<span *ngIf="bar.line1[bar.line1.length-1] != ',' && bar.line1[bar.line1.length-1] != '.' && bar.line1[bar.line1.length-1] != '!' && bar.line1[bar.line1.length-1] != '?'">,</span><br>
+      {{bar.line2}}<span *ngIf="bar.line2[bar.line2.length-1] != ',' && bar.line2[bar.line2.length-1] != '.' && bar.line2[bar.line2.length-1] != '!' && bar.line2[bar.line2.length-1] != '?'">,</span></p>
+    </div>
+
+    <!-- If the person viewing the battle is not a participant, show a critique button -->
+      <div id="critiqueBox1" *ngIf="battle.ownerName != user.username && battle.opponentName != user.username && bar.ownerName == battle.ownerName">
+        <---<button class="critiqueButton" (click)="addCritique(bar)">Critique These Bars!</button>
+      </div>
+
+    <div id="blankBarBox" *ngIf="bar.ownerName == battle.opponentName && (battle.ownerName == user.username || battle.opponentName == user.username)">
+    </div>
+    <!-- If the person viewing the battle is not a participant, show a critique button -->
+    <div id="critiqueBox2" *ngIf="battle.ownerName != user.username && battle.opponentName != user.username && bar.ownerName == battle.opponentName">
+      <button class="critiqueButton" (click)="addCritique(bar)">Critique These Bars!</button>---->
+    </div>
+    <div id="barContent2" *ngIf="bar.ownerName == battle.opponentName">
+      <p>{{bar.line1}}<span *ngIf="bar.line1[bar.line1.length-1] != ',' && bar.line1[bar.line1.length-1] != '.' && bar.line1[bar.line1.length-1] != '!' && bar.line1[bar.line1.length-1] != '?'">,</span><br>
+      {{bar.line2}}<span *ngIf="bar.line2[bar.line2.length-1] != ',' && bar.line2[bar.line2.length-1] != '.' && bar.line2[bar.line2.length-1] != '!' && bar.line2[bar.line2.length-1] != '?'">,</span></p>
+    </div>
+    <div id="opponentBarBox" *ngIf="bar.ownerName == battle.opponentName">
+      <p>{{bar.ownerName}}</p>
+      <p class="dateLine">{{bar.createdAt | date:"medium"}}</p>
+    </div>
+  </div>
+
+  <!-- Show a form for entering new bars if it is the current user's turn -->
+  <div id="newBarBox" *ngIf="battle.whoseMic == username && battle.ongoing == true">
+    <h2>Rhyme's on you, {{battle.whoseMic}}!</h2>
+    <h4>Write your rhymes here:</h4>
+    <form class="newBar" #newBarForm="ngForm" (submit)="postBars()">
+      <input type="text" class="lineInput" placeholder="Line 1" name="line1" required minlength="15" maxlength="500" [(ngModel)]="bar.line1"><br>
+      <input type="text" class="lineInput" placeholder="Line 2" name="line2" required minlength="15" maxlength="500" [(ngModel)]="bar.line2"><br>
+      <input type="submit" id="submitButton" value="Post Bars!" [disabled]="newBarForm.invalid">
+    </form>
+  </div>
+
+  <!-- If it's not the current user's turn, show whose turn it is -->
+  <div id="waitingBox" *ngIf="battle.whoseMic != username && battle.ongoing == true">
+    <h1>Waiting for {{battle.whoseMic}} to post bars...</h1>
+  </div>
+
+  <!-- If the battle is over, say that, and show who the current winner is -->
+  <div *ngIf="battle.ongoing == false">
+    <h1>Battle Completed!</h1>
+    <div *ngIf="battle.winner != '' && battle.winner != 'Tie'">
+      <h1>{{battle.winner}} is the winner of this battle!</h1>
+      <h3>(Remember that the winner may change as more spectators critique sets of bars.)</h3>
+      <br>
+    </div>
+    <div *ngIf="battle.winner == ''">
+      <h1>There is no winner determined yet!</h1>
+      <h3>Spectators need to critique bars before a winner can be declared.</h3>
+    </div>
+    <div *ngIf="battle.winner == 'Tie'">
+      <h1>This battle is currently a tie!</h1>
+      <h3>As spectators critique more bars, a winner will be determined.</h3>
+    </div>
+  </div>
+</div>
+
+<!-- If this is a challenge or an open battle, display an option to accept or decline it -->
+<div id="acceptChallenge" *ngIf="battle.accepted == false && battle.opponentName == username">
+  <h1>{{battle.ownerName}} has challenged you to a battle!</h1>
+  <p>This battle will have a total of {{battle.totalBars}} sets of bars, with a maximum time
+    of {{battle.maxWait}} hours between posts before you forfeit your turn.
+  </p>
+  <p *ngIf="battle.whoseMic == username">{{battle.ownerName}} has already posted the first set of bars:<br><br></p>
+  <div *ngIf="battle.whoseMic == username" id="postedBars">{{battle.bars[0].line1}}<br>{{battle.bars[0].line2}}<br></div>
+  <p *ngIf="battle.whoseMic == battle.ownerName">{{battle.ownerName}} will go first in this battle, and
+    they have not yet posted their first set of bars.
+  </p>
+  <h1>Do you accept this challenge?</h1>
+  <button id="yesButton" (click)="acceptBattle()">Yeah!</button><br>
+  <button id="noButton" (click)="declineBattle()">No, I'm Scared</button><br>
+</div>
+
+<!-- If you are challenging someone else to a battle, show that and allow for the first set of bars to be posted -->
+<div id="beforeAccepted" *ngIf="battle.accepted == false && battle.ownerName == username">
+  <div id="infoBox">
+    <h1>You have challenged {{battle.opponentName}} to a battle!</h1>
+    <p *ngIf="battle.whoseMic == battle.ownerName">{{battle.opponentName}} will have to accept your challenge,
+      but you can post your first set of bars right now.
+    </p>
+    <p *ngIf="battle.whoseMic == battle.opponentName">{{battle.opponentName}} has not yet accepted your challenge.
+      Please come back again soon.
+    </p>
+  </div>
+  <div id="newBarBox" *ngIf="battle.whoseMic == battle.ownerName && battle.ongoing == true">
+      <h4>Write your first set of bars here:</h4>
+      <form class="newBar" #newBarForm="ngForm" (submit)="postBars()">
+        <input type="text" class="lineInput" placeholder="Line 1" name="line1" required minlength="15" maxlength="500" [(ngModel)]="bar.line1"><br>
+        <input type="text" class="lineInput" placeholder="Line 2" name="line2" required minlength="15" maxlength="500" [(ngModel)]="bar.line2"><br>
+        <input type="submit" id="submitButton" value="Post Bars!" [disabled]="newBarForm.invalid">
+      </form>
+    </div>
+</div>

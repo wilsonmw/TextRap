@@ -1,0 +1,105 @@
+#challenges{
+    width: 40%;
+    height: 300px;
+    margin: 2%;
+    padding: 2%;
+    background-color: red;
+    border: 2px solid black;
+    display: inline-block;
+    box-shadow: 3px 3px 2px gray;
+    text-align: center;
+    overflow: scroll;
+}
+#curBattles{
+    width: 40%;
+    height: 300px;
+    margin: 2%;
+    padding: 2%;
+    background-color: red;
+    border: 2px solid black;
+    display: inline-block;
+    box-shadow: 3px 3px 2px gray;
+    text-align: center;
+    overflow: scroll;
+}
+#curCollabs{
+    width: 40%;
+    height: 300px;
+    margin: 2%;
+    padding: 2%;
+    background-color: red;
+    border: 2px solid black;
+    display: inline-block;
+    box-shadow: 3px 3px 2px gray;
+    text-align: center;
+    overflow: scroll;
+}
+#openBattles{
+    width: 40%;
+    height: 300px;
+    margin: 2%;
+    padding: 2%;
+    background-color: red;
+    border: 2px solid black;
+    display: inline-block;
+    box-shadow: 3px 3px 2px gray;
+    text-align: center;
+    overflow: scroll;
+}
+#otherBattles{
+    width: 40%;
+    height: 300px;
+    margin: 2%;
+    padding: 2%;
+    background-color: red;
+    border: 2px solid black;
+    display: inline-block;
+    box-shadow: 3px 3px 2px gray;
+    text-align: center;
+    overflow: scroll;
+}
+#otherCollabs{
+    width: 40%;
+    height: 300px;
+    margin: 2%;
+    padding: 2%;
+    background-color: red;
+    border: 2px solid black;
+    display: inline-block;
+    box-shadow: 3px 3px 2px gray;
+    text-align: center;
+    overflow: scroll;
+}
+table{
+    border: 1px solid black;
+    padding: 5px;
+    border-collapse: collapse;
+    width: 95%;
+    margin-bottom: 2%;
+    box-shadow: 1px 1px 0px black;
+    background-color: lightgray;
+    padding-bottom: 10px;
+}
+th, tr, td{
+    border: 1px solid black;
+    height: 25px;
+}
+th{
+    background-color: gray;
+    color: whitesmoke;
+}
+#wholeDashboard{
+    text-align: center;
+    align-content: center;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+a:hover{
+    color: red;
+}
+.scrollDiv{
+    overflow: scroll;
+    height: 250px;
+}

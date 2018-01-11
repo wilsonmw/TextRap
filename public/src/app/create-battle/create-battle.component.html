@@ -1,0 +1,15 @@
+
+<div id="createBattleBox">
+  <h3>New Battle: {{username}}</h3>
+  <form id="createBattle" #newBattleForm="ngForm" (submit)="submitBattle()">
+    You:<br> <input type="text" class="inputBox" name="owner" [(ngModel)]="battle.owner" [disabled]="true"><br>
+    <h3>VS.</h3>
+    <span class="opponentError" *ngIf="errors.opponentNotExist == true">That opponent is not a user of this site. Make sure you spelled their name correctly, or choose a different opponent.</span>
+    <span class="opponentError" *ngIf="errors.alreadyInBattle == true">It looks like you're already in a battle with that opponent; you can't start a new battle until you've finished that one. Or are you scared?</span>
+    <input type='text' class="inputBox" name="opponent" [(ngModel)]="battle.opponent" placeholder="Leave blank to allow any challenger"><br>
+    
+    <br>Maximum Time (in hours) before forfeiting turn: <br><input type="number" class="inputBox" name="maxWait" [(ngModel)]="battle.maxWait" required placeholder="Default is one week - 168 hours"><br>
+    <br>Total Turns:<br> <input type="number" class="inputBox" name="totalBars" [(ngModel)]="battle.totalBars" required placeholder="Must be an even number - default is 60"><br>
+    <input type="submit" id="startBattleButton" value="Start Battle!" [disabled]="newBattleForm.invalid">
+  </form>
+</div>

@@ -1,0 +1,13 @@
+<div id="wholeJoinPage">
+  <div id="battleInfoBox">
+    <h1>{{oneOpenBattle.ownerName}} is up for a challenge!</h1>
+    <h3>This battle will have a total of {{ oneOpenBattle.totalBars}} sets of bars,
+       with a maximum time of {{ oneOpenBattle.maxWait }}
+      hours allowed between posts before you forfeit your turn.
+      {{ oneOpenBattle.ownerName }} will go first.
+    </h3>
+    <h1>Do you, {{ username }}, accept this challenge?</h1>
+    <button id="yesButton" (click)="joinBattle()">Yeah!</button><br>
+    <button id="noButton" (click)="cancelJoin()">No, I'm Scared</button>
+  </div>
+</div>

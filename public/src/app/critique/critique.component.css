@@ -1,0 +1,33 @@
+h2{
+    text-align: center;
+}
+
+#barsBox{
+    text-align: center;
+    border: 2px solid black;
+    width: 60%;
+    background-color: #60BB6F;
+    border-radius: 5px;
+    margin: auto;
+    margin-bottom: 20px;
+    box-shadow: 5px 5px 2px black;
+}
+
+#critiqueBox{
+    width: 60%;
+    margin: auto;
+    background-color: lightgray;
+    text-align: center;
+    padding-bottom: 30px;
+    padding-top: 30px;
+    border: 1px solid black;
+    box-shadow: 5px 5px 2px black;
+}
+#critiqueForm{
+    width: 60%;
+    text-align: right;
+}
+select{
+    margin-bottom: 5px;
+    height: 3vh;
+}

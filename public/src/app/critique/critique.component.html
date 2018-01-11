@@ -1,0 +1,109 @@
+<h2>Critique these bars, posted by {{bars.ownerName}}:</h2>
+<div id="barsBox">
+  <p>{{bars.line1}}</p>
+  <p>{{bars.line2}}</p> 
+</div>
+
+<div id="critiqueBox">
+  <h3>Rate all elements on a scale of 1 to 10</h3>
+  <form id="critiqueForm" (submit)="submitCritique()">
+    Rhyme Complexity: <select name="rhymeComplexity" [(ngModel)]="critique.rhymeComplexity">
+      <option value='1'>1</option>
+      <option value='2'>2</option>
+      <option value='3'>3</option>
+      <option value='4'>4</option>
+      <option value='5' selected>5</option>
+      <option value='6'>6</option>
+      <option value='7'>7</option>
+      <option value='8'>8</option>
+      <option value='9'>9</option>
+      <option value='10'>10</option>
+    </select><br>
+    Cleverness: <select name="cleverness" [(ngModel)]="critique.cleverness">
+        <option value='1'>1</option>
+        <option value='2'>2</option>
+        <option value='3'>3</option>
+        <option value='4'>4</option>
+        <option value='5' selected>5</option>
+        <option value='6'>6</option>
+        <option value='7'>7</option>
+        <option value='8'>8</option>
+        <option value='9'>9</option>
+        <option value='10'>10</option>
+      </select><br>
+    Humor: <select name="humor" [(ngModel)]="critique.humor">
+        <option value='1'>1</option>
+        <option value='2'>2</option>
+        <option value='3'>3</option>
+        <option value='4'>4</option>
+        <option value='5' selected>5</option>
+        <option value='6'>6</option>
+        <option value='7'>7</option>
+        <option value='8'>8</option>
+        <option value='9'>9</option>
+        <option value='10'>10</option>
+      </select><br>
+    Originality: <select name="originality" [(ngModel)]="critique.originality">
+        <option value='1'>1</option>
+        <option value='2'>2</option>
+        <option value='3'>3</option>
+        <option value='4'>4</option>
+        <option value='5' selected>5</option>
+        <option value='6'>6</option>
+        <option value='7'>7</option>
+        <option value='8'>8</option>
+        <option value='9'>9</option>
+        <option value='10'>10</option>
+      </select><br>
+    Wordplay: <select name="wordplay" [(ngModel)]="critique.wordplay">
+        <option value='1'>1</option>
+        <option value='2'>2</option>
+        <option value='3'>3</option>
+        <option value='4'>4</option>
+        <option value='5' selected>5</option>
+        <option value='6'>6</option>
+        <option value='7'>7</option>
+        <option value='8'>8</option>
+        <option value='9'>9</option>
+        <option value='10'>10</option>
+      </select><br>
+    Does it Make Sense: <select name="makeSense" [(ngModel)]="critique.makeSense">
+        <option value='1'>1</option>
+        <option value='2'>2</option>
+        <option value='3'>3</option>
+        <option value='4'>4</option>
+        <option value='5' selected>5</option>
+        <option value='6'>6</option>
+        <option value='7'>7</option>
+        <option value='8'>8</option>
+        <option value='9'>9</option>
+        <option value='10'>10</option>
+      </select><br>
+    Insult Level: <select name="insult" [(ngModel)]="critique.insult">
+        <option value='1'>1</option>
+        <option value='2'>2</option>
+        <option value='3'>3</option>
+        <option value='4'>4</option>
+        <option value='5' selected>5</option>
+        <option value='6'>6</option>
+        <option value='7'>7</option>
+        <option value='8'>8</option>
+        <option value='9'>9</option>
+        <option value='10'>10</option>
+      </select><br>
+    Flowability: <select name="flow" [(ngModel)]="critique.flow">
+        <option value='1'>1</option>
+        <option value='2'>2</option>
+        <option value='3'>3</option>
+        <option value='4'>4</option>
+        <option value='5' selected>5</option>
+        <option value='6'>6</option>
+        <option value='7'>7</option>
+        <option value='8'>8</option>
+        <option value='9'>9</option>
+        <option value='10'>10</option>
+      </select><br>
+    <input type="submit" value="Submit Critique">
+  </form>
+  <a [routerLink]="['/home/battle', bars._battle]">Cancel</a>
+</div>
