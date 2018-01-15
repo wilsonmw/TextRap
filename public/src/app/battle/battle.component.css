@@ -15,6 +15,22 @@ h1, h2, h3{
     height: 65px;
     overflow: auto;
 }
+
+#forfeitContent{
+    display: inline-block;
+    border: 2px solid black;
+    background-color: black;
+    color: white;
+    padding: 10px;
+    margin-left: 2%;
+    margin-top: 5px;
+    width: 49%;
+    box-shadow: 3px 3px 2px gray;
+    border-radius: 7px 80px 80px 7px;
+    height: 65px;
+    overflow: auto;
+}
+
 #battleContentBox{
     align-content: center;
 }
@@ -56,6 +72,23 @@ h1, h2, h3{
     text-align: right;
     overflow: auto;
 }
+
+#forfeitContent2{
+    display: inline-block;
+    border: 2px solid black;
+    background-color: black;
+    color: white;
+    padding: 10px;
+    margin-left: 2%;
+    margin-top: 5px;
+    width: 49%;
+    box-shadow: 3px 3px 2px gray;
+    border-radius: 80px 7px 7px 80px;
+    height: 65px;
+    text-align: right;
+    overflow: auto;
+}
+
 #opponentBarBox{
     display: inline-block;
     border: 2px solid black;

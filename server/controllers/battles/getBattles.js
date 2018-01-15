@@ -4,6 +4,9 @@ var Battle = mongoose.model('Battle');
 var Bar = mongoose.model('Bar');
 var Critique = mongoose.model('Critique');
 
+var moment = require('moment');
+// moment().format();
+
 module.exports = {
 
     // Function to get a single battle, which also includes the owner and opponent of the battle
@@ -25,7 +28,49 @@ module.exports = {
                                 console.log("error getting the opponent at server.js");
                             } else{
                                 battleInfo.push(opponent);
-                                res.json(battleInfo);
+                                // Check to see if the participant whose turn it is has waited too long; if so, their turn is forfeit
+                                battle.timeSince = moment(battle.lastBarDate).fromNow(true);
+                                var lastBar = moment(battle.lastBarDate);
+                                var curTime = moment(Date.now());
+                                var hoursSinceLastBars = curTime.diff(lastBar, 'hours');
+                                if(battle.maxWait < hoursSinceLastBars && battle.ongoing == true && battle.accepted == true){
+                                    var forfeitBar = new Bar();
+                                        forfeitBar.line1 = "!! TURN FORFEIT !!";
+                                        forfeitBar.line2 = battle.whoseMic + " waited too long!";
+                                        forfeitBar.ownerName = battle.whoseMic;
+                                        forfeitBar.totalScore = 0;
+                                        if(battle.whoseMic == battle.ownerName){
+                                            console.log(battle.whoseMic, battle.ownerName, "here is the whoseMic and the ownerName inside the if when assigning the owner of the forfeit bar");
+                                            forfeitBar._owner = owner;
+                                        } else if(battle.whoseMic == battle.opponentName){
+                                            console.log(battle.whoseMic, battle.ownerName, "here is the whoseMic and the ownerName inside the else if when assigning the owner of the forfeit bar");
+                                            forfeitBar._owner = opponent;
+                                        }
+                                        forfeitBar._battle = battle._id;
+                                    
+                                        forfeitBar.save(function(err){
+                                            if(err){
+                                            }
+                                            battle.bars.push(forfeitBar);
+                                            if(battle.whoseMic == battle.ownerName){
+                                                console.log(battle.whoseMic, battle.ownerName, "here is the whoseMic and the ownerName inside the if before the switch");
+                                                battle.whoseMic = battle.opponentName;
+                                                console.log(battle.whoseMic, battle.ownerName, "here is the whoseMic and the ownerName inside the if after the switch");
+                                            } else {
+                                                console.log(battle.whoseMic, battle.ownerName, "here is the whoseMic and the ownerName inside the else before the switch");
+                                                battle.whoseMic = battle.ownerName;
+                                                console.log(battle.whoseMic, battle.ownerName, "here is the whoseMic and the ownerName inside the else after the switch");
+                                            }
+                                            battle.lastBarDate = curTime;
+                                            battle.save(function(err){
+                                                battleInfo[0] = battle;
+                                                res.json(battleInfo);
+                                            });
+                                    });
+                                    
+                                } else{
+                                    res.json(battleInfo);
+                                }
                             }
                         })
                     }

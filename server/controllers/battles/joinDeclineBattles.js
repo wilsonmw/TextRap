@@ -54,6 +54,7 @@ module.exports = {
                 console.log("There was an error accepting the battle at the server level.");
             } else{
                 battle.accepted = true;
+                battle.lastBarDate = Date.now();
                 battle.save();
                 res.json(battle);
             }

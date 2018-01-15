@@ -10,26 +10,36 @@
       <p>{{bar.ownerName}}</p>
       <p class="dateLine">{{bar.createdAt | date:"medium"}}</p>
     </div>
-    <div id="barContent" *ngIf="bar.ownerName == battle.ownerName">
+    <div id="barContent" *ngIf="bar.ownerName == battle.ownerName && bar.line1 != '!! TURN FORFEIT !!'">
       <p>{{bar.line1}}<span *ngIf="bar.line1[bar.line1.length-1] != ',' && bar.line1[bar.line1.length-1] != '.' && bar.line1[bar.line1.length-1] != '!' && bar.line1[bar.line1.length-1] != '?'">,</span><br>
       {{bar.line2}}<span *ngIf="bar.line2[bar.line2.length-1] != ',' && bar.line2[bar.line2.length-1] != '.' && bar.line2[bar.line2.length-1] != '!' && bar.line2[bar.line2.length-1] != '?'">,</span></p>
     </div>
 
+    <div id="forfeitContent" *ngIf="bar.ownerName == battle.ownerName && bar.line1 == '!! TURN FORFEIT !!'">
+      <p>{{bar.line1}} <br> {{bar.line2}}</p>
+    </div>
+
     <!-- If the person viewing the battle is not a participant, show a critique button -->
-      <div id="critiqueBox1" *ngIf="battle.ownerName != user.username && battle.opponentName != user.username && bar.ownerName == battle.ownerName">
+      <div id="critiqueBox1" *ngIf="battle.ownerName != user.username && battle.opponentName != user.username && bar.ownerName == battle.ownerName && bar.line1 != '!! TURN FORFEIT !!'">
         <---<button class="critiqueButton" (click)="addCritique(bar)">Critique These Bars!</button>
       </div>
 
-    <div id="blankBarBox" *ngIf="bar.ownerName == battle.opponentName && (battle.ownerName == user.username || battle.opponentName == user.username)">
+    <div id="blankBarBox" *ngIf="(bar.ownerName == battle.opponentName && (battle.ownerName == user.username || battle.opponentName == user.username)) || bar.line1 == '!! TURN FORFEIT !!'">
     </div>
+    
     <!-- If the person viewing the battle is not a participant, show a critique button -->
-    <div id="critiqueBox2" *ngIf="battle.ownerName != user.username && battle.opponentName != user.username && bar.ownerName == battle.opponentName">
+    <div id="critiqueBox2" *ngIf="battle.ownerName != user.username && battle.opponentName != user.username && bar.ownerName == battle.opponentName && bar.line1 != '!! TURN FORFEIT !!'">
       <button class="critiqueButton" (click)="addCritique(bar)">Critique These Bars!</button>---->
     </div>
-    <div id="barContent2" *ngIf="bar.ownerName == battle.opponentName">
+    <div id="barContent2" *ngIf="bar.ownerName == battle.opponentName && bar.line1 != '!! TURN FORFEIT !!'">
       <p>{{bar.line1}}<span *ngIf="bar.line1[bar.line1.length-1] != ',' && bar.line1[bar.line1.length-1] != '.' && bar.line1[bar.line1.length-1] != '!' && bar.line1[bar.line1.length-1] != '?'">,</span><br>
       {{bar.line2}}<span *ngIf="bar.line2[bar.line2.length-1] != ',' && bar.line2[bar.line2.length-1] != '.' && bar.line2[bar.line2.length-1] != '!' && bar.line2[bar.line2.length-1] != '?'">,</span></p>
     </div>
+
+    <div id="forfeitContent2" *ngIf="bar.ownerName == battle.opponentName && bar.line1 == '!! TURN FORFEIT !!'">
+      <p>{{bar.line1}} <br> {{bar.line2}}</p>
+    </div>
+
     <div id="opponentBarBox" *ngIf="bar.ownerName == battle.opponentName">
       <p>{{bar.ownerName}}</p>
       <p class="dateLine">{{bar.createdAt | date:"medium"}}</p>

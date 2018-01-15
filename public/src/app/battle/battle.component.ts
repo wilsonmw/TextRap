@@ -18,8 +18,8 @@ export class BattleComponent implements OnInit {
     whoseMic: "",
     openToJoin: true,
     ongoing: true,
-    maxWait: 168,
-    totalBars: 60,
+    maxWait: 48,
+    totalBars: 30,
     winner: ""
   }
 

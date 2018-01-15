@@ -22,8 +22,8 @@ export class CreateBattleComponent implements OnInit {
     whoseMic: "",
     openToJoin: true,
     ongoing: true,
-    maxWait: 168,
-    totalBars: 60,
+    maxWait: 48,
+    totalBars: 20,
     winner: ""
   }
   
