@@ -10,7 +10,6 @@
   "license": "ISC",
   "dependencies": {
     "@angular/core": "5.0.5",
-    "bcrypt-as-promised": "^1.0.4",
     "cookie-parser": "^1.4.3",
     "express": "^4.16.0",
     "express-session": "^1.15.6",
