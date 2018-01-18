@@ -1,3 +1,14 @@
-<p>
-  create-collab works!
-</p>
+<h1>Start a New Collaboration</h1>
+
+<form id="numParticipantsForm" (submit)="getParticipants(numParticipants)">
+  How many participants will be in this collaboration (max of 5)?<br>
+  <select name="number" [(ngModel)] = "numParticipants">
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+  <input type="submit" value="Select Number of Participants">
+</form>
+
+<app-collab-form></app-collab-form>

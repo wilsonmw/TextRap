@@ -16,9 +16,11 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { CreateBattleComponent } from './create-battle/create-battle.component';
 import { CreateCollabComponent } from './create-collab/create-collab.component';
 import { JoinComponent } from './join/join.component';
+import { CollabFormComponent } from './collab-form/collab-form.component';
 
 import { UserService } from './user.service';
 import { RapService } from './rap.service';
+import { CollabService } from './collab.service';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,8 @@ import { RapService } from './rap.service';
     NavbarComponent,
     CreateBattleComponent,
     CreateCollabComponent,
-    JoinComponent
+    JoinComponent,
+    CollabFormComponent
     ],
   imports: [
     BrowserModule,
@@ -41,7 +44,7 @@ import { RapService } from './rap.service';
     HttpModule,
     AppRoutingModule
   ],
-  providers: [UserService, RapService],
+  providers: [UserService, RapService, CollabService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

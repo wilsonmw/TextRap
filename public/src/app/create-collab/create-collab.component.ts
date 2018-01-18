@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { UserService } from '../user.service';
+import { CollabService } from '../collab.service';
 
 @Component({
   selector: 'app-create-collab',
@@ -7,7 +10,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateCollabComponent implements OnInit {
 
-  constructor() { }
+  numParticipants:number;
+
+
+  constructor(private _router: Router, private _route: ActivatedRoute, private _collabService: CollabService, private _userService: UserService) { }
+
+  getParticipants(num){
+    console.log(num);
+    this._collabService.getParticipants(num);
+  }
 
   ngOnInit() {
   }

@@ -14,7 +14,7 @@ export class LoginRegComponent implements OnInit {
     emailInUse: false
   }
 
-  user = {
+   user = {
     username: "",
     email: "",
     password: "",
